@@ -86,39 +86,6 @@ class UIWrapper:
                                    inputs=[model_selection, extractor_selection, infer_mode_selection, image_upload],
                                    outputs=[result_captions])
         return demo
-# def infer(model_name,extractor_name,mode,img_path):
-#     tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-#     global model
-#     model = NIC_BN(vocab_size=tokenizer.vocab_size, embed_dim=1024, hidden_size=512, feature_dim=512)
-#     model_path = f"models/{model_name}.pth"
-#     state = torch.load(model_path)
-#     state_dict = state['state_dict']
-#     model.load_state_dict(state_dict)
-#     model.eval()
-#     img = Image.open(img_path)
-#     captions = inference([img], model, tokenizer, extractor_name="clip",mode=mode)
-#     print(captions)
-#     return captions[0]
-# test = gr.Textbox()
-# model_selection = gr.Dropdown(choices=MODELS,value=MODELS[0],label="Model",interactive=True)
-# extractor_selection = gr.Dropdown(choices=EXTRACTORS,value=EXTRACTORS[0],label="Feature Extractor",interactive=True)
-# infer_mode_selection = gr.Dropdown(choices=INFER_MODES,value=INFER_MODES[0],label="Inference Mode",interactive=True)
-# image_upload = gr.Image(interactive=True,label="Input Image",type="filepath")
-# image_upload_btn = gr.Button(value="Predict!",variant="primary",interactive=True)
-# result_captions = gr.Textbox(interactive=False,label="Result")
-#
-# with gr.Blocks() as demo:
-#     with gr.Row():
-#         model_selection.render()
-#         extractor_selection.render()
-#         infer_mode_selection.render()
-#     with gr.Row():
-#         image_upload.render()
-#     with gr.Row():
-#         image_upload_btn.render()
-#     with gr.Row():
-#         result_captions.render()
-#     image_upload_btn.click(infer,inputs=[model_selection,extractor_selection,infer_mode_selection,image_upload],outputs=[result_captions])
 
 if __name__ == "__main__":
     demo = UIWrapper().interface()
