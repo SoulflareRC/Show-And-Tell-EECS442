@@ -1,3 +1,4 @@
+'''https://github.com/jbrownlee/Datasets/releases/tag/Flickr8k'''
 import typing
 
 import PIL.Image
